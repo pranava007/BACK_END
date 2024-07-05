@@ -52,8 +52,8 @@ export const Updateemployee = async (req,res)=>{
         const epmId = req.params.id
         const {employeeFirstName,employeelastName,employeeEmail,employeeDesignation} = req.body
 
-        const result = await Empolyee.updateOne({epmId},{employeeFirstName,employeelastName,employeeEmail,employeeDesignation})
-        res.status(200).json({messsage:"Update Successfully",result:[result]})
+        const resulte = await Empolyee.updateOne({epmId},{employeeFirstName,employeelastName,employeeEmail,employeeDesignation})
+        res.status(200).json({messsage:"Update Successfully",result:[resulte]})
 
         
     } catch (error) {
