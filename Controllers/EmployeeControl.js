@@ -7,7 +7,7 @@ export const createEmployee = async (req,res)=>{
         // const {} = req.body
         const newEmployee = new Empolyee(req.body)
         await newEmployee.save()
-        res.status(200).json({messsage:"Add New Employee",data:[newEmployee]})
+        res.status(200).json({messsage:"Add New Employee",result:[newEmployee]})
         
     } catch (error) {
         console.log(error);
@@ -20,7 +20,7 @@ export const getEmployee = async (req,res)=>{
 
     try {
         const getemp = await Empolyee.find();
-        res.status(200).json({messsage:"Get Details Employee" , data:[getemp]})
+        res.status(200).json({messsage:"Get Details Employee" , result:[getemp]})
         
     } catch (error) {
         console.log(error);
@@ -36,7 +36,7 @@ export const getemployeeById = async (req,res)=>{
 
         const empid = req.params.id
         const getemp = await Empolyee.findById(empid)
-        res.status(200).json({messsage:"Get one Employee detail", data:[getemp]})
+        res.status(200).json({messsage:"Get one Employee detail", result:[getemp]})
         
     } catch (error) {
         console.log(error);
@@ -53,7 +53,7 @@ export const Updateemployee = async (req,res)=>{
         const {employeeFirstName,employeelastName,employeeEmail,employeeDesignation} = req.body
 
         const result = await Empolyee.updateOne({epmId},{employeeFirstName,employeelastName,employeeEmail,employeeDesignation})
-        res.status(200).json({messsage:"Update Successfully",data:[result]})
+        res.status(200).json({messsage:"Update Successfully",result:[result]})
 
         
     } catch (error) {
@@ -70,7 +70,7 @@ export const deleteemployee = async (req,res) =>{
 
         const empID = req.params.id;
         const deleteEmp = await Empolyee.deleteOne({_id:empID})  
-        res.status(200).json({messsage:"Delete successfully", data:[deleteEmp]})
+        res.status(200).json({messsage:"Delete successfully", result:[deleteEmp]})
         
     } catch (error) {
         console.log(error);
